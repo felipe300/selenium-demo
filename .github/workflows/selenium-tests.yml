@@ -1,7 +1,7 @@
 ---
 name: Selenium Tests
 
-on: ["push", "pull_request"]
+"on": ["push", "pull_request"]
 
 jobs:
   build:
@@ -10,28 +10,28 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Recommended for some CI setups, fetches all history
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # Use the latest stable version for Python setup
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10" # Specify your desired Python version
+          python-version: "3.10"
 
       - name: Install Python dependencies
+
         run: |
           python -m pip install --upgrade pip
-          pip install selenium pytest # Install Selenium and pytest
+          pip install selenium pytest
 
       - name: Set up Firefox and Geckodriver
-        # This action handles installing Firefox and the compatible Geckodriver
         uses: browser-actions/setup-firefox@latest
         with:
-          firefox-version: "latest" # Or a specific version like '128.0'
+          firefox-version: "latest"
 
       - name: Run Firefox version check
         run: firefox --version
 
       - name: Run Selenium Tests with Pytest
-        # Replace 'your_test_file.py' with the actual path to your Python test script
-        # If you have multiple test files, pytest will discover them automatically
-        run: pytest
+        run: |
+          source venv/bin/activate
+          pytest
