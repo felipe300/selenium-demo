@@ -38,4 +38,4 @@ jobs:
         run: firefox --version
 
       - name: Run Selenium Tests with Pytest
-        run: pytest your_test_file.py
+        run: pytest
