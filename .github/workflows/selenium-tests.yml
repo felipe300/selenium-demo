@@ -33,5 +33,4 @@ jobs:
 
       - name: Run Selenium Tests with Pytest
         run: |
-          source venv/bin/activate
           pytest
