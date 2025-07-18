@@ -34,4 +34,4 @@ jobs:
       - name: Run Selenium Tests with Pytest
         # Replace 'your_test_file.py' with the actual path to your Python test script
         # If you have multiple test files, pytest will discover them automatically
-        run: pytest your_test_file.py
+        run: pytest
